@@ -2,15 +2,30 @@
 
 <body>
 
-<script>
-    https://www.tester.com
-    alert(document.domain)
-</script>
+
 <a href="javascript://https://www.tester.com/%0aalert(document.domain)"> click me to get haxxed </a>
 <br/>
 <a href="javascript://https://www.tester.com/%0aalert(document.cookie)"> click me to ur cookiez </a>
 <br/>
-<a href="javascript://https://www.tester.com/%0aalert(document.createElement("div"))"> click me to mod ur doc </a>
+<h1>Run from inline script</h1>
+<p>
+    var testDivElement = document.createElement('div');
+    <br>
+    var testNewText = document.createTextNode('testexec');
+    <br>
+    testDivElement.appendChild(testNewText);
+    <br>
+    document.body.insertBefore(testDivElement, document.getElementById('div1'));
+</p>
+<div id="div1"></div>
+<h2> <a href="javascript://https://www.tester.com/%0avar divElement = document.createElement('div'); var newText = document.createTextNode('hello from the other side');divElement.appendChild(newText);const currentDiv = document.getElementById('div1'); document.body.insertBefore(divElement,currentDiv);">Click me to mod ur doc </a></h2>
+<div id="div2"></div>
+
 </body>
+<script>
+    https://www.tester.com
+    //alert(document.domain)
+    var divElement = document.createElement('div'); var newText = document.createTextNode(document.domain + ': hello from the inline side');divElement.appendChild(newText);const newCurrentDiv = document.getElementById('div2'); document.body.insertBefore(divElement,newCurrentDiv);
+</script>
 </html>
 
